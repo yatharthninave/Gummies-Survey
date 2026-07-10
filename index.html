@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gummy Lab | Create Your Perfect Gummies</title>
+    <meta name="description"
+        content="Help shape the future of functional gummies. Take our survey to personalize your perfect gummy formula. Join the waitlist today.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed": "#161e00",
+                        "on-background": "#1b1b1b",
+                        "primary-container": "#ccff00",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9f9",
+                        "surface": "#f9f9f9",
+                        "outline": "#747a60",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "secondary-container": "#e4006c",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e2",
+                        "primary-fixed-dim": "#abd600",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#006970",
+                        "outline-variant": "#c4c9ac",
+                        "on-tertiary-container": "#00767e",
+                        "on-primary-container": "#5b7300",
+                        "inverse-primary": "#abd600",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "on-surface": "#1b1b1b",
+                        "tertiary-fixed": "#7df4ff",
+                        "on-secondary-fixed-variant": "#8f0041",
+                        "inverse-surface": "#303030",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#506600",
+                        "surface-container": "#eeeeee",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-fixed": "#3f0019",
+                        "tertiary-fixed-dim": "#00dbe9",
+                        "on-secondary-container": "#fffbff",
+                        "on-tertiary-fixed": "#002022",
+                        "secondary-fixed": "#ffd9e0",
+                        "on-error": "#ffffff",
+                        "primary": "#506600",
+                        "tertiary-container": "#b4f8ff",
+                        "secondary-fixed-dim": "#ffb1c3",
+                        "on-surface-variant": "#444933",
+                        "secondary": "#b60055",
+                        "on-tertiary-fixed-variant": "#004f54",
+                        "inverse-on-surface": "#f1f1f1",
+                        "primary-fixed": "#c3f400"
+                    },
+                    borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+                    spacing: { xl: "64px", gutter: "20px", unit: "4px", xs: "4px", "margin-desktop": "40px", "margin-mobile": "16px", lg: "32px", md: "16px", sm: "8px" },
+                    fontFamily: { "label-mono": ["Space Mono"], "body-lg": ["Hanken Grotesk"], "body-md": ["Hanken Grotesk"], "headline-lg-mobile": ["Anybody"], "display-xl": ["Anybody"], "headline-lg": ["Anybody"], "label-caps": ["Space Mono"], "headline-md": ["Anybody"] },
+                    fontSize: {
+                        "label-mono": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "500" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-lg-mobile": ["32px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "display-xl": ["80px", { lineHeight: "88px", letterSpacing: "-0.04em", fontWeight: "900" }],
+                        "headline-lg": ["48px", { lineHeight: "52px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "label-caps": ["12px", { lineHeight: "16px", letterSpacing: "0.1em", fontWeight: "700" }],
+                        "headline-md": ["24px", { lineHeight: "28px", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        .neo-shadow {
+            box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+        }
+
+        .neo-shadow-sm {
+            box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+        }
+
+        .neo-shadow-white {
+            box-shadow: 4px 4px 0px 0px rgba(255, 255, 255, 1);
+        }
+
+        .selection-card-active {
+            transform: translate(4px, 4px) !important;
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1) !important;
+            background-color: #ccff00 !important;
+        }
+
+        .multi-card-active {
+            transform: translate(4px, 4px) !important;
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1) !important;
+            background-color: #ccff00 !important;
+        }
+
+        .progress-bar-fill {
+            transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .electric-pulse {
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0% {
+                border-color: #1b1b1b;
+            }
+
+            50% {
+                border-color: #e4006c;
+            }
+
+            100% {
+                border-color: #1b1b1b;
+            }
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .animate-float {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes spark {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.2) rotate(15deg);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .spark-animation {
+            animation: spark 3s infinite ease-in-out;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .page-enter {
+            animation: fadeSlideIn 0.3s ease forwards;
+        }
+
+        .rank-item {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .rank-number {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #1b1b1b;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 14px;
+            background: white;
+            flex-shrink: 0;
+        }
+
+        .rank-item.ranked {
+            background-color: #ccff00;
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 rgba(0, 0, 0, 1);
+        }
+
+        .rank-item.ranked .rank-number {
+            background-color: #1b1b1b;
+            color: #ccff00;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-8px);
+            }
+
+            40% {
+                transform: translateX(8px);
+            }
+
+            60% {
+                transform: translateX(-4px);
+            }
+
+            80% {
+                transform: translateX(4px);
+            }
+        }
+
+        .shake {
+            animation: shake 0.4s ease;
+        }
+
+        .input-error {
+            border-color: #ba1a1a !important;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes checkDraw {
+            from {
+                stroke-dashoffset: 100;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .check-path {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: checkDraw 0.6s ease 0.3s forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .confetti-piece {
+            position: fixed;
+            animation: confettiFall linear forwards;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background overflow-x-hidden">
+
+    <!-- LANDING PAGE -->
+    <div id="page-landing" class="page active">
+        <header
+            class="bg-surface w-full sticky top-0 z-50 border-b-2 border-on-background shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div class="flex justify-between items-center px-4 md:px-10 h-16 w-full max-w-7xl mx-auto">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-2xl">science</span>
+                    <h1 class="font-headline-md text-headline-md font-extrabold text-on-background"
+                        style="font-family:'Anybody',sans-serif;">Gummy Lab</h1>
+                </div>
+                <nav class="hidden md:flex gap-8">
+                    <a class="font-label-caps text-label-caps text-on-background hover:translate-y-1 transition-all"
+                        href="#">Customizer</a>
+                    <a class="font-label-caps text-label-caps text-outline hover:translate-y-1 transition-all"
+                        href="#">Rewards</a>
+                    <a class="font-label-caps text-label-caps text-outline hover:translate-y-1 transition-all"
+                        href="#">Profile</a>
+                </nav>
+                <button
+                    class="flex items-center justify-center p-2 border-2 border-on-background hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all md:hidden">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </header>
+        <main>
+            <!-- Hero -->
+            <section class="relative pt-lg pb-xl px-4 md:px-10 bg-surface-container overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center max-w-7xl mx-auto">
+                    <div class="lg:col-span-6 z-10 flex flex-col gap-8 order-2 lg:order-1">
+                        <div
+                            class="inline-block bg-secondary-container text-white border-2 border-on-background px-4 py-1 self-start neo-shadow-sm font-label-mono text-label-mono">
+                            NEW FORMULA RELEASED</div>
+                        <h2 class="font-display-xl text-headline-lg-mobile md:text-display-xl leading-tight uppercase"
+                            style="font-family:'Anybody',sans-serif;font-weight:900;">Create Your Perfect <span
+                                class="text-secondary underline decoration-4 underline-offset-8 italic">Gummies</span>
+                        </h2>
+                        <div class="font-body-lg text-body-lg text-on-surface-variant max-w-lg space-y-2">
+                            <p>&#x1F353; We're Rethinking Gummies. Will You Help Shape the Future?</p>
+                            <p>Imagine a gummy that's delicious without the guilt. No added sugar. No preservatives. No
+                                artificial colors or flavors.</p>
+                            <p>We're building a new kind of gummy designed for kids, fitness enthusiasts, busy
+                                professionals, and anyone who wants a treat they can feel good about.</p>
+                            <p><strong>Build it with us, not just for you.</strong></p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button id="cta-start" onclick="goToSurvey()"
+                                class="bg-primary-container text-on-primary-container border-2 border-on-background px-8 py-4 font-label-caps text-label-caps uppercase neo-shadow hover:translate-x-2 hover:translate-y-2 hover:shadow-none transition-all active:translate-x-2 active:translate-y-2">&#x1F680;
+                                Take the Survey</button>
+                        </div>
+                        <div class="flex items-center gap-4 mt-2">
+                            <div class="flex -space-x-3">
+                                <div class="w-12 h-12 border-2 border-on-background bg-secondary"></div>
+                                <div class="w-12 h-12 border-2 border-on-background bg-tertiary"></div>
+                                <div class="w-12 h-12 border-2 border-on-background bg-primary-container"></div>
+                            </div>
+                            <p class="font-label-mono text-label-mono text-on-surface">56+ Personalized batches mixed
+                                this week</p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-6 order-1 lg:order-2 flex justify-center lg:justify-end">
+                        <div class="relative w-full max-w-lg">
+                            <div
+                                class="absolute -top-10 -right-10 w-40 h-40 bg-secondary rounded-full border-4 border-on-background z-0 animate-float">
+                            </div>
+                            <div class="absolute -bottom-5 -left-5 w-32 h-32 bg-tertiary-fixed border-4 border-on-background z-0 animate-float"
+                                style="animation-delay:1s;"></div>
+                            <div
+                                class="relative border-4 border-on-background bg-white p-4 neo-shadow rotate-2 hover:rotate-0 transition-transform duration-500 overflow-hidden">
+                                <img alt="Explosion of fruit and gummies" class="w-full aspect-square object-cover"
+                                    src="https://lh3.googleusercontent.com/aida/AP1WRLvb6rIj4oFGbGnquwcchccxALtVuDdU04Vr36iyjsOPxOzt-lnrwSfX9WTNmnWtst7IBP0q_qbEZWrLLQIjQhLtrQKiOLDWSeaNBZDKc9YCjWWSbKP_R24u9kIUid6VFnL17hnutvnfi32G78e_9j_Ypbp0esxamyKRq38uD_pFS_WYf8yzVXCBxZ4ssVTl2U4qexAob9LYtXE-k8E3S-zQp8GI_LOoyJ-Mx18TI5yVR1MEHYUQibKZikI">
+                                <div
+                                    class="absolute bottom-8 right-8 bg-on-background text-white p-4 border-2 border-white rotate-[-5deg]">
+                                    <p class="font-headline-md text-headline-md leading-none"
+                                        style="font-family:'Anybody',sans-serif;">Chew Different</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Bento Grid -->
+            <section class="py-xl px-4 md:px-10">
+                <h3 class="text-headline-lg-mobile md:text-headline-lg uppercase mb-12 text-center"
+                    style="font-family:'Anybody',sans-serif;font-weight:800;">Your Lab, Your Rules</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-gutter max-w-7xl mx-auto">
+                    <div
+                        class="md:col-span-4 lg:col-span-4 bg-tertiary-container border-2 border-on-background p-8 neo-shadow group hover:bg-tertiary transition-colors">
+                        <div class="flex justify-between items-start mb-6">
+                            <span
+                                class="text-headline-lg opacity-20 group-hover:text-white group-hover:opacity-100 transition-all"
+                                style="font-family:'Anybody',sans-serif;font-weight:900;">01</span>
+                            <span class="material-symbols-outlined text-4xl group-hover:text-white">favorite</span>
+                        </div>
+                        <h4 class="font-headline-md text-headline-md mb-2 group-hover:text-white"
+                            style="font-family:'Anybody',sans-serif;">Health Goal</h4>
+                        <p class="font-body-md text-body-md group-hover:text-white/80">Immunity, Sleep, Focus, or
+                            Energy? Tell us what you need.</p>
+                    </div>
+                    <div
+                        class="md:col-span-4 lg:col-span-8 bg-secondary-fixed border-2 border-on-background p-8 neo-shadow flex flex-col md:flex-row gap-8 items-center">
+                        <div class="flex-1">
+                            <span class="text-headline-lg opacity-20 mb-6 block"
+                                style="font-family:'Anybody',sans-serif;font-weight:900;">02</span>
+                            <h4 class="font-headline-md text-headline-md mb-2"
+                                style="font-family:'Anybody',sans-serif;">Flavor Profile</h4>
+                            <p class="font-body-md text-body-md mb-6">From Electric Watermelon to Sour Mango Blast.
+                                Choose up to 3 flavors.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="bg-white border-2 border-on-background px-3 py-1 font-label-mono text-label-mono">&#x1F96D;
+                                    MANGO</span>
+                                <span
+                                    class="bg-white border-2 border-on-background px-3 py-1 font-label-mono text-label-mono">&#x1F353;
+                                    STRAWBERRY</span>
+                                <span
+                                    class="bg-white border-2 border-on-background px-3 py-1 font-label-mono text-label-mono">&#x1F34A;
+                                    ORANGE</span>
+                                <span
+                                    class="bg-white border-2 border-on-background px-3 py-1 font-label-mono text-label-mono">&#x1FAD0;
+                                    MIXED BERRY</span>
+                            </div>
+                        </div>
+                        <div
+                            class="w-full md:w-48 h-48 border-2 border-on-background bg-white overflow-hidden rotate-3">
+                            <img class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWX911kcKjZ8XryqOB3eDpcdnOVL9MD1kkLsocGErI1vM_-uD8Z1zwNnjuRh8XKjR-uLwy4LbTUApIqTUs_t-KHStmLPiYACg3yxoAKifhQDqcUCJTlkNCw0fGLsXzukZxQihfQqmbxQrJkeWwo_RmuFO104RKwfmuRLfEQj952ATH4QPFMHZuoLRDlVtoT2h_bXjWeZYSAXeOXN6EiQqvva7WgX1-w9R-TZ_-eklShen9XmChPJeu"
+                                alt="Fruit">
+                        </div>
+                    </div>
+                    <div
+                        class="md:col-span-4 lg:col-span-7 bg-primary-fixed border-2 border-on-background p-8 neo-shadow">
+                        <span class="text-headline-lg opacity-20 mb-6 block"
+                            style="font-family:'Anybody',sans-serif;font-weight:900;">03</span>
+                        <h4 class="font-headline-md text-headline-md mb-2 text-on-primary-fixed"
+                            style="font-family:'Anybody',sans-serif;">The Shape</h4>
+                        <p class="font-body-md text-body-md text-on-primary-fixed-variant mb-4">Bears, Hearts, Stars, or
+                            Cubes — pick your vibe.</p>
+                    </div>
+                    <div class="md:col-span-4 lg:col-span-5 bg-white border-2 border-on-background p-8 neo-shadow">
+                        <span class="text-headline-lg opacity-20 mb-6 block"
+                            style="font-family:'Anybody',sans-serif;font-weight:900;">04</span>
+                        <h4 class="font-headline-md text-headline-md mb-2" style="font-family:'Anybody',sans-serif;">
+                            Sweetness Level</h4>
+                        <p class="font-body-md text-body-md mb-4">Zero Sugar? Natural Sweeteners? You decide.</p>
+                    </div>
+                </div>
+            </section>
+            <!-- CTA -->
+            <section class="py-xl px-4 md:px-10 bg-on-background text-white overflow-hidden relative">
+                <div class="max-w-4xl mx-auto text-center relative z-10">
+                    <h2 class="text-headline-lg-mobile md:text-headline-lg uppercase mb-6"
+                        style="font-family:'Anybody',sans-serif;font-weight:800;">Ready to mix your batch?</h2>
+                    <p class="font-body-lg text-body-lg mb-10 text-outline-variant">Join 50,000+ gummy enthusiasts who
+                        stopped buying generic shelf candy and started building their own health routine.</p>
+                    <button onclick="goToSurvey()"
+                        class="bg-primary-container text-on-primary-container border-2 border-white px-10 py-5 font-label-caps text-label-caps uppercase neo-shadow-white hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">Start
+                        Customizing &#x2192;</button>
+                </div>
+                <div class="absolute top-10 left-10 opacity-20"><span
+                        class="material-symbols-outlined text-[120px] animate-float">bubbles</span></div>
+                <div class="absolute bottom-10 right-10 opacity-20"><span
+                        class="material-symbols-outlined text-[120px] animate-float">science</span></div>
+            </section>
+        </main>
+        <footer class="bg-surface-container-low border-t-2 border-on-background py-16 px-4 md:px-10">
+            <div class="flex flex-col md:flex-row justify-between gap-12 max-w-7xl mx-auto">
+                <div class="max-w-sm">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="material-symbols-outlined text-primary text-2xl">science</span>
+                        <span class="font-headline-md text-headline-md font-extrabold uppercase"
+                            style="font-family:'Anybody',sans-serif;">Gummy Lab</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant">The future of functional snacking.
+                        Personalized for your goals and your taste buds.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+                    <div class="flex flex-col gap-4">
+                        <h5 class="font-label-caps text-label-caps uppercase text-outline">Lab</h5>
+                        <a class="font-body-md text-body-md hover:underline" href="#">Customizer</a>
+                        <a class="font-body-md text-body-md hover:underline" href="#">Science</a>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <h5 class="font-label-caps text-label-caps uppercase text-outline">Legal</h5>
+                        <a class="font-body-md text-body-md hover:underline" href="#">Privacy</a>
+                        <a class="font-body-md text-body-md hover:underline" href="#">Terms</a>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="mt-16 pt-8 border-t border-outline-variant flex flex-col sm:flex-row justify-between items-center gap-4 max-w-7xl mx-auto">
+                <p class="font-label-mono text-label-mono text-on-surface-variant">&#169; 2024 GUMMY LAB INC. ALL RIGHTS
+                    RESERVED.</p>
+                <span
+                    class="bg-primary-container border border-on-background px-2 py-0.5 font-label-mono text-[10px] animate-pulse">LAB
+                    STATUS: OPTIMAL</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- SURVEY PAGE -->
+    <div id="page-survey" class="page">
+        <header
+            class="w-full sticky top-0 z-50 bg-surface border-b-4 border-on-background flex justify-between items-center px-4 md:px-10 h-16 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div class="flex items-center gap-4">
+                <button onclick="confirmGoHome()"
+                    class="material-symbols-outlined hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all active:scale-90 cursor-pointer">close</button>
+                <h1 class="font-headline-md text-headline-md font-extrabold text-on-background tracking-tighter"
+                    style="font-family:'Anybody',sans-serif;">Gummy Lab</h1>
+            </div>
+            <div class="hidden md:flex gap-8 items-center">
+                <span
+                    class="font-label-caps text-label-caps text-on-background cursor-pointer hover:underline">Architect</span>
+                <span class="font-label-caps text-label-caps text-outline cursor-pointer hover:underline">Rewards</span>
+            </div>
+        </header>
+        <main class="max-w-4xl mx-auto px-4 md:px-0 pt-10 pb-48">
+            <div class="mb-10">
+                <div class="flex justify-between items-end mb-4">
+                    <div>
+                        <h2 class="font-headline-lg-mobile text-headline-lg-mobile uppercase italic" id="step-title"
+                            style="font-family:'Anybody',sans-serif;">YOUR VIBE</h2>
+                        <p class="font-label-mono text-label-mono uppercase mt-1 text-on-surface-variant"
+                            id="step-subtitle">Who are you?</p>
+                    </div>
+                    <span
+                        class="font-label-mono text-label-mono bg-on-background text-surface px-3 py-1 neo-shadow-sm border-2 border-on-background"
+                        id="step-counter">01/08</span>
+                </div>
+                <div
+                    class="w-full h-8 bg-surface-container border-4 border-on-background neo-shadow-sm overflow-hidden">
+                    <div class="progress-bar-fill h-full bg-secondary-container border-r-4 border-on-background"
+                        id="progress-indicator" style="width:12.5%;"></div>
+                </div>
+            </div>
+            <div id="error-banner"
+                class="hidden bg-error-container border-2 border-error text-error px-4 py-3 mb-6 font-label-mono text-label-mono flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">error</span>
+                <span id="error-msg">Please make a selection before continuing.</span>
+            </div>
+            <div id="survey-steps">
+                <!-- STEP 1: User Type -->
+                <section class="survey-step" id="step-1">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'userType','Student')">
+                            <span class="material-symbols-outlined text-4xl text-secondary">rocket_launch</span>
+                            <span class="font-label-mono text-label-mono font-bold uppercase">Student</span>
+                        </button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'userType','Professional')">
+                            <span class="material-symbols-outlined text-4xl text-tertiary">work</span>
+                            <span class="font-label-mono text-label-mono font-bold uppercase">Professional</span>
+                        </button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'userType','Gym Buddy')">
+                            <span class="material-symbols-outlined text-4xl text-primary">fitness_center</span>
+                            <span class="font-label-mono text-label-mono font-bold uppercase">Gym Buddy</span>
+                        </button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'userType','Parent')">
+                            <span class="material-symbols-outlined text-4xl text-secondary">family_restroom</span>
+                            <span class="font-label-mono text-label-mono font-bold uppercase">Parent</span>
+                        </button>
+                    </div>
+                </section>
+                <!-- STEP 2: Age Group -->
+                <section class="survey-step hidden" id="step-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                        <button
+                            class="group bg-surface border-4 border-on-background p-8 flex items-center gap-6 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'ageGroup','Under 18')">
+                            <span class="material-symbols-outlined text-5xl text-secondary">child_care</span>
+                            <div class="text-left"><span class="font-headline-md text-headline-md block"
+                                    style="font-family:'Anybody',sans-serif;">Under 18</span><span
+                                    class="font-body-md text-body-md text-on-surface-variant">Teen &amp; Young</span>
+                            </div>
+                        </button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-8 flex items-center gap-6 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'ageGroup','18-24')">
+                            <span class="material-symbols-outlined text-5xl text-tertiary">school</span>
+                            <div class="text-left"><span class="font-headline-md text-headline-md block"
+                                    style="font-family:'Anybody',sans-serif;">18 &ndash; 24</span><span
+                                    class="font-body-md text-body-md text-on-surface-variant">Young Adult</span></div>
+                        </button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-8 flex items-center gap-6 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'ageGroup','25-34')">
+                            <span class="material-symbols-outlined text-5xl text-primary">work</span>
+                            <div class="text-left"><span class="font-headline-md text-headline-md block"
+                                    style="font-family:'Anybody',sans-serif;">25 &ndash; 34</span><span
+                                    class="font-body-md text-body-md text-on-surface-variant">Prime Hustle</span></div>
+                        </button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-8 flex items-center gap-6 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'ageGroup','35-44')">
+                            <span
+                                class="material-symbols-outlined text-5xl text-secondary-container">family_restroom</span>
+                            <div class="text-left"><span class="font-headline-md text-headline-md block"
+                                    style="font-family:'Anybody',sans-serif;">35 &ndash; 44</span><span
+                                    class="font-body-md text-body-md text-on-surface-variant">Peak Performance</span>
+                            </div>
+                        </button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-8 flex items-center gap-6 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'ageGroup','45+')">
+                            <span class="material-symbols-outlined text-5xl text-tertiary">self_improvement</span>
+                            <div class="text-left"><span class="font-headline-md text-headline-md block"
+                                    style="font-family:'Anybody',sans-serif;">45+</span><span
+                                    class="font-body-md text-body-md text-on-surface-variant">Wisdom Mode</span></div>
+                        </button>
+                    </div>
+                </section>
+                <!-- STEP 3: Health Goals -->
+                <section class="survey-step hidden" id="step-3">
+                    <p class="font-label-mono text-label-mono uppercase mb-6 text-on-surface-variant">Choose up to 3
+                        goals</p>
+                    <div class="grid md:grid-cols-3 gap-gutter grid-cols-2">
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'healthGoals','Energy',3)"><span
+                                class="material-symbols-outlined text-6xl text-secondary">bolt</span><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Energy</span></button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'healthGoals','Sleep',3)"><span
+                                class="material-symbols-outlined text-6xl text-tertiary">bedtime</span><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Sleep</span></button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'healthGoals','Protein',3)"><span
+                                class="material-symbols-outlined text-6xl text-primary">fitness_center</span><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Protein</span></button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'healthGoals','Hair',3)"><span
+                                class="material-symbols-outlined text-6xl text-secondary">content_cut</span><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Hair</span></button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'healthGoals','Skin',3)"><span
+                                class="material-symbols-outlined text-6xl text-tertiary">face</span><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Skin</span></button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'healthGoals','Focus',3)"><span
+                                class="material-symbols-outlined text-6xl text-primary">psychology</span><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Focus</span></button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'healthGoals','Immunity',3)"><span
+                                class="material-symbols-outlined text-6xl text-secondary">shield</span><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Immunity</span></button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'healthGoals','Digestion',3)"><span
+                                class="material-symbols-outlined text-6xl text-tertiary">nutrition</span><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Digestion</span></button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'healthGoals','Hydration',3)"><span
+                                class="material-symbols-outlined text-6xl text-primary">water_drop</span><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Hydration</span></button>
+                        <button
+                            class="group bg-surface border-4 border-on-background p-6 flex flex-col items-center justify-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'healthGoals','Electrolytes',3)"><span
+                                class="material-symbols-outlined text-6xl text-secondary">electric_bolt</span><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Electrolytes</span></button>
+                    </div>
+                </section>
+                <!-- STEP 4: Preferred Flavors -->
+                <section class="survey-step hidden" id="step-4">
+                    <p class="font-label-mono text-label-mono uppercase mb-6 text-on-surface-variant">Choose up to 3
+                        flavors</p>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-gutter">
+                        <button
+                            class="group border-4 border-on-background neo-shadow bg-surface overflow-hidden hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'preferredFlavors','Mango',3)">
+                            <div
+                                class="h-32 bg-orange-400 border-b-4 border-on-background flex items-center justify-center">
+                                <span class="text-6xl">&#x1F96D;</span></div>
+                            <div class="p-4 font-headline-md text-center font-black uppercase italic"
+                                style="font-family:'Anybody',sans-serif;">Mango</div>
+                        </button>
+                        <button
+                            class="group border-4 border-on-background neo-shadow bg-surface overflow-hidden hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'preferredFlavors','Strawberry',3)">
+                            <div
+                                class="h-32 bg-red-500 border-b-4 border-on-background flex items-center justify-center">
+                                <span class="text-6xl">&#x1F353;</span></div>
+                            <div class="p-4 font-headline-md text-center font-black uppercase italic"
+                                style="font-family:'Anybody',sans-serif;">Strawberry</div>
+                        </button>
+                        <button
+                            class="group border-4 border-on-background neo-shadow bg-surface overflow-hidden hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'preferredFlavors','Orange',3)">
+                            <div
+                                class="h-32 bg-orange-500 border-b-4 border-on-background flex items-center justify-center">
+                                <span class="text-6xl">&#x1F34A;</span></div>
+                            <div class="p-4 font-headline-md text-center font-black uppercase italic"
+                                style="font-family:'Anybody',sans-serif;">Orange</div>
+                        </button>
+                        <button
+                            class="group border-4 border-on-background neo-shadow bg-surface overflow-hidden hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'preferredFlavors','Mixed Berry',3)">
+                            <div
+                                class="h-32 bg-purple-600 border-b-4 border-on-background flex items-center justify-center">
+                                <span class="text-6xl">&#x1FAD0;</span></div>
+                            <div class="p-4 font-headline-md text-center font-black uppercase italic"
+                                style="font-family:'Anybody',sans-serif;">Mixed Berry</div>
+                        </button>
+                        <button
+                            class="group border-4 border-on-background neo-shadow bg-surface overflow-hidden hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'preferredFlavors','Green Apple',3)">
+                            <div
+                                class="h-32 bg-lime-400 border-b-4 border-on-background flex items-center justify-center">
+                                <span class="text-6xl">&#x1F34F;</span></div>
+                            <div class="p-4 font-headline-md text-center font-black uppercase italic"
+                                style="font-family:'Anybody',sans-serif;">Green Apple</div>
+                        </button>
+                        <button
+                            class="group border-4 border-on-background neo-shadow bg-surface overflow-hidden hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectMulti(this,'preferredFlavors','Lemon',3)">
+                            <div
+                                class="h-32 bg-yellow-300 border-b-4 border-on-background flex items-center justify-center">
+                                <span class="text-6xl">&#x1F34B;</span></div>
+                            <div class="p-4 font-headline-md text-center font-black uppercase italic"
+                                style="font-family:'Anybody',sans-serif;">Lemon</div>
+                        </button>
+                    </div>
+                </section>
+                <!-- STEP 5: Priority Ranking -->
+                <section class="survey-step hidden" id="step-5">
+                    <p class="font-label-mono text-label-mono uppercase mb-6 text-on-surface-variant">Tap to assign rank
+                        (1 = Highest Priority). Rank all 7.</p>
+                    <div class="bg-surface border-4 border-on-background p-6 neo-shadow">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="rank-container">
+                            <div class="rank-item bg-white border-2 border-on-background p-4 flex justify-between items-center hover:bg-surface-container transition-all"
+                                onclick="handleRank(this)" data-rank-label="Taste"><span
+                                    class="font-headline-md text-md uppercase font-bold"
+                                    style="font-family:'Anybody',sans-serif;">Taste</span>
+                                <div class="rank-number">-</div>
+                            </div>
+                            <div class="rank-item bg-white border-2 border-on-background p-4 flex justify-between items-center hover:bg-surface-container transition-all"
+                                onclick="handleRank(this)" data-rank-label="Ingredients"><span
+                                    class="font-headline-md text-md uppercase font-bold"
+                                    style="font-family:'Anybody',sans-serif;">Ingredients</span>
+                                <div class="rank-number">-</div>
+                            </div>
+                            <div class="rank-item bg-white border-2 border-on-background p-4 flex justify-between items-center hover:bg-surface-container transition-all"
+                                onclick="handleRank(this)" data-rank-label="Price"><span
+                                    class="font-headline-md text-md uppercase font-bold"
+                                    style="font-family:'Anybody',sans-serif;">Price</span>
+                                <div class="rank-number">-</div>
+                            </div>
+                            <div class="rank-item bg-white border-2 border-on-background p-4 flex justify-between items-center hover:bg-surface-container transition-all"
+                                onclick="handleRank(this)" data-rank-label="Effectiveness"><span
+                                    class="font-headline-md text-md uppercase font-bold"
+                                    style="font-family:'Anybody',sans-serif;">Effectiveness</span>
+                                <div class="rank-number">-</div>
+                            </div>
+                            <div class="rank-item bg-white border-2 border-on-background p-4 flex justify-between items-center hover:bg-surface-container transition-all"
+                                onclick="handleRank(this)" data-rank-label="Brand"><span
+                                    class="font-headline-md text-md uppercase font-bold"
+                                    style="font-family:'Anybody',sans-serif;">Brand</span>
+                                <div class="rank-number">-</div>
+                            </div>
+                            <div class="rank-item bg-white border-2 border-on-background p-4 flex justify-between items-center hover:bg-surface-container transition-all"
+                                onclick="handleRank(this)" data-rank-label="Packaging"><span
+                                    class="font-headline-md text-md uppercase font-bold"
+                                    style="font-family:'Anybody',sans-serif;">Packaging</span>
+                                <div class="rank-number">-</div>
+                            </div>
+                            <div class="rank-item bg-white border-2 border-on-background p-4 flex justify-between items-center hover:bg-surface-container transition-all"
+                                onclick="handleRank(this)" data-rank-label="Sugar Content"><span
+                                    class="font-headline-md text-md uppercase font-bold"
+                                    style="font-family:'Anybody',sans-serif;">Sugar Content</span>
+                                <div class="rank-number">-</div>
+                            </div>
+                        </div>
+                        <button
+                            class="mt-8 w-full font-label-caps text-label-caps bg-on-background text-surface py-3 uppercase font-bold hover:opacity-80 transition-opacity"
+                            onclick="resetRanks()">Reset Ranking</button>
+                    </div>
+                </section>
+                <!-- STEP 6: Shape Selection -->
+                <section class="survey-step hidden" id="step-6">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-gutter">
+                        <button
+                            class="group border-4 border-on-background neo-shadow bg-surface overflow-hidden hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'shapePreference','Bears')">
+                            <div class="h-40 border-b-4 border-on-background overflow-hidden"><img alt="Bears"
+                                    class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida/AP1WRLvZvFX77vEtFZDHg4Xiw8CjbIAgwcrPdGe46W2u3bvIdTj2YS_9CbazKW8-h88sVluKU5znnzOyyGPt6CtsGl4673hhY6KNQk4MyFhojyqabh40KBeZU6ZAtECJKVijQwBl3ZOh7BYAzYdJcFuQhYibeQo0TDk2uFOZoXwfD4KVJvH7-RWvnJxY09RwtM7KVrfbv_atAbQFdEb91eSEP6rG-ox4MJTimKRPNmLu90CbD0cGbSxo1QJYBQ">
+                            </div>
+                            <div class="p-4 font-headline-md text-center font-black uppercase italic"
+                                style="font-family:'Anybody',sans-serif;">Bears</div>
+                        </button>
+                        <button
+                            class="group border-4 border-on-background neo-shadow bg-surface overflow-hidden hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'shapePreference','Hearts')">
+                            <div class="h-40 border-b-4 border-on-background overflow-hidden"><img alt="Hearts"
+                                    class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida/AP1WRLvny9rVwt8Uy6HgDwzfJpMqCJSv7ck3j98UtmQDI5OED4e1xIkdZn2vs3AmaTJruwutB2bFTQPlNBYLYyiMO59yM6GQcq7P7uSxW3YlIwYeYTWaFZbrCnUFtf9fB7frVPdsop_LfR8IfNSFOI4DeqNRqgGzayJkbvfOw6M1a2JBylLoSuTWeW2Wq5cduRDUH5Wk-M1A3gB6o9yVqD-o0BWn3p_1HBNB2Q-JKblJlcmrjj58NSd9-IbfDe0">
+                            </div>
+                            <div class="p-4 font-headline-md text-center font-black uppercase italic"
+                                style="font-family:'Anybody',sans-serif;">Hearts</div>
+                        </button>
+                        <button
+                            class="group border-4 border-on-background neo-shadow bg-surface overflow-hidden hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'shapePreference','Stars')">
+                            <div class="h-40 border-b-4 border-on-background overflow-hidden"><img alt="Stars"
+                                    class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida/AP1WRLtnahwK3DbSnwV9iJVIf4kT482WDJluAcq9JnCBd7paQ-Dnm2labZahhb_8sfwgXUl-5SDpnDyFeuiJ2rpJbdcJyUR4crjvCuyrxB-GuHG95Y7KrwdRObJrrtNHOGTdnXbioDpvAfmmDUxqQx_XhzL51F4Lqk3GPk5INevof2ppIFoqOWBRU_z8uzDTXeKoI6ai1XRbdMzEPx5NTDXBQY8_a-grUQwNP_JrTZoeaZWQxPayQ-2kIk35qdY">
+                            </div>
+                            <div class="p-4 font-headline-md text-center font-black uppercase italic"
+                                style="font-family:'Anybody',sans-serif;">Stars</div>
+                        </button>
+                        <button
+                            class="group border-4 border-on-background neo-shadow bg-surface overflow-hidden hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'shapePreference','Cubes')">
+                            <div class="h-40 border-b-4 border-on-background overflow-hidden"><img alt="Cubes"
+                                    class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida/AP1WRLte1V7bx7xypZpksUSCm49Il8CxI9R-zCxxg06grVasgWtvWCXFEh9BHhGCAeCBsVCdHviH_iV1flGRJq4ycvo5ti8al1SU4Bm-U8hgHpF17yx80wz8EygsI-rET7cZ8UYxjLYL5lBm6WjZD9GLd_sbuOEOI6nYT2C7cuIGttQQm_azepnXTkZtcv_lpetnGrlRjVp1NZGEwV-YGWKW395PY9MqJEwVHQFVCJnELLpI3OjBLqxmC42U4Lk">
+                            </div>
+                            <div class="p-4 font-headline-md text-center font-black uppercase italic"
+                                style="font-family:'Anybody',sans-serif;">Cubes</div>
+                        </button>
+                        <button
+                            class="group border-4 border-on-background neo-shadow bg-surface overflow-hidden hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'shapePreference','Fruit Shapes')">
+                            <div class="h-40 border-b-4 border-on-background overflow-hidden"><img alt="Fruit Shapes"
+                                    class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida/AP1WRLteGbQN5rnHaRzCLZ98H_RkN1s9ON4ywYDjpLBuiEkPq5qbYfcpuMIcjNtyAldKNyUl6xPKhThKzP4W4LPyWGwLca5m5dogNCcC-ZRlAPR7_sXH1QFGZm673YgRkhfwlKKh61aOGRvjazwv4Bkz1DM7JJlH5GGMuAD4Qnr1eUf-2Plum3Os16IWQGSDJWvOhk9Uf__8cGmvzxj_XRFxT7u5sEJRs1S160sipjY0dIpPCgh9arEqpjkofQ">
+                            </div>
+                            <div class="p-4 font-headline-md text-center font-black uppercase italic"
+                                style="font-family:'Anybody',sans-serif;">Fruit Shapes</div>
+                        </button>
+                    </div>
+                </section>
+                <!-- STEP 7: Sweetness -->
+                <section class="survey-step hidden" id="step-7">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                        <button
+                            class="bg-surface border-4 border-on-background p-10 flex flex-col items-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'preferredSweetness','Zero Sugar')"><span
+                                class="material-symbols-outlined text-6xl">check_circle</span>
+                            <div class="text-center"><span
+                                    class="font-headline-lg-mobile block uppercase font-black italic"
+                                    style="font-family:'Anybody',sans-serif;">Zero Sugar</span><span
+                                    class="font-body-md text-body-md font-bold">Keto Friendly</span></div>
+                        </button>
+                        <button
+                            class="bg-surface border-4 border-on-background p-10 flex flex-col items-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'preferredSweetness','Low Sugar')"><span
+                                class="material-symbols-outlined text-6xl">energy_savings_leaf</span>
+                            <div class="text-center"><span
+                                    class="font-headline-lg-mobile block uppercase font-black italic"
+                                    style="font-family:'Anybody',sans-serif;">Low Sugar</span><span
+                                    class="font-body-md text-body-md font-bold">Real Cane Sugar</span></div>
+                        </button>
+                        <button
+                            class="bg-surface border-4 border-on-background p-10 flex flex-col items-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'preferredSweetness','Natural Sweeteners')"><span
+                                class="material-symbols-outlined text-6xl">favorite</span>
+                            <div class="text-center"><span
+                                    class="font-headline-lg-mobile block uppercase font-black italic"
+                                    style="font-family:'Anybody',sans-serif;">Natural Sweeteners</span><span
+                                    class="font-body-md text-body-md font-bold">Stevia &amp; Monkfruit</span></div>
+                        </button>
+                        <button
+                            class="bg-surface border-4 border-on-background p-10 flex flex-col items-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'preferredSweetness','Doesn&apos;t Matter')"><span
+                                class="material-symbols-outlined text-6xl">shutter_speed</span>
+                            <div class="text-center"><span
+                                    class="font-headline-lg-mobile block uppercase font-black italic"
+                                    style="font-family:'Anybody',sans-serif;">Doesn't Matter</span><span
+                                    class="font-body-md text-body-md font-bold">Maximum Flavor Focus</span></div>
+                        </button>
+                    </div>
+                </section>
+                <!-- STEP 8: Purchase Intent -->
+                <section class="survey-step hidden" id="step-8">
+                    <h3 class="font-headline-md text-headline-md uppercase font-black mb-6"
+                        style="font-family:'Anybody',sans-serif;">If someone made gummies specifically for your health
+                        goals, would you buy them?</h3>
+                    <div class="grid grid-cols-1 gap-4">
+                        <button
+                            class="group bg-white border-4 border-on-background p-6 flex justify-between items-center neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'purchaseIntent','Definitely')"><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Definitely</span><span
+                                class="material-symbols-outlined text-primary">check_circle</span></button>
+                        <button
+                            class="group bg-white border-4 border-on-background p-6 flex justify-between items-center neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'purchaseIntent','Probably')"><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Probably</span><span
+                                class="material-symbols-outlined text-tertiary">sentiment_satisfied</span></button>
+                        <button
+                            class="group bg-white border-4 border-on-background p-6 flex justify-between items-center neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'purchaseIntent','Maybe')"><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Maybe</span><span
+                                class="material-symbols-outlined text-outline">help</span></button>
+                        <button
+                            class="group bg-white border-4 border-on-background p-6 flex justify-between items-center neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'purchaseIntent','Probably Not')"><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">Probably Not</span><span
+                                class="material-symbols-outlined text-secondary">sentiment_dissatisfied</span></button>
+                        <button
+                            class="group bg-white border-4 border-on-background p-6 flex justify-between items-center neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
+                            onclick="selectSingle(this,'purchaseIntent','No')"><span
+                                class="font-headline-md text-md font-black uppercase"
+                                style="font-family:'Anybody',sans-serif;">No</span><span
+                                class="material-symbols-outlined text-error">cancel</span></button>
+                    </div>
+                </section>
+            </div>
+            <!-- Nav Buttons -->
+            <div class="fixed bottom-0 left-0 w-full px-4 pb-4 pt-8 flex justify-center pointer-events-none z-40"
+                style="background:linear-gradient(to top,#f9f9f9 60%,transparent);">
+                <div class="max-w-4xl w-full flex justify-end pointer-events-auto gap-4">
+                    <button
+                        class="bg-surface text-on-background font-label-mono text-label-mono px-6 py-4 border-4 border-on-background neo-shadow-sm hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all flex items-center gap-2 group opacity-30 pointer-events-none"
+                        id="back-btn" onclick="prevStep()">
+                        <span
+                            class="material-symbols-outlined font-bold group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                        <span class="uppercase font-black italic">BACK</span>
+                    </button>
+                    <button
+                        class="bg-secondary-container text-white font-label-mono text-label-mono px-10 py-4 border-4 border-on-background neo-shadow-sm hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all flex items-center gap-2 group"
+                        id="next-btn" onclick="nextStep()">
+                        <span class="uppercase font-black italic" id="next-btn-text">NEXT STEP</span>
+                        <span
+                            class="material-symbols-outlined font-bold group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- WAITLIST PAGE -->
+    <div id="page-waitlist" class="page">
+        <header
+            class="w-full sticky top-0 z-50 bg-surface border-b-2 border-on-background shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center px-4 h-16">
+            <button onclick="goBackToSurvey()"
+                class="material-symbols-outlined text-primary cursor-pointer hover:translate-y-1 hover:translate-x-1 transition-all">arrow_back</button>
+            <h1 class="font-headline-md text-headline-md font-extrabold text-on-background"
+                style="font-family:'Anybody',sans-serif;">Gummy Lab</h1>
+            <div class="w-8"></div>
+        </header>
+        <main class="container mx-auto px-4 md:px-10 py-12 relative pb-24">
+            <div class="absolute top-10 right-0 md:right-10 spark-animation pointer-events-none opacity-40"><span
+                    class="material-symbols-outlined text-[80px] text-secondary-container"
+                    style="font-variation-settings:'FILL' 1;">auto_awesome</span></div>
+            <div class="absolute bottom-20 left-4 spark-animation pointer-events-none opacity-40"
+                style="animation-delay:1s;"><span class="material-symbols-outlined text-[64px] text-primary-container"
+                    style="font-variation-settings:'FILL' 1;">star</span></div>
+            <div class="max-w-3xl mx-auto flex flex-col items-center text-center mb-12">
+                <h2 class="text-4xl md:text-5xl uppercase tracking-tighter mb-4"
+                    style="font-family:'Anybody',sans-serif;font-weight:900;">SECURE THE <span
+                        class="text-secondary-container bg-on-background px-4 inline-block transform -rotate-2">VIBE</span>
+                </h2>
+                <p class="font-body-lg text-body-lg max-w-xl">You're one step away from your custom batch. Join the
+                    waitlist now.</p>
+            </div>
+            <div
+                class="max-w-2xl mx-auto bg-surface-container-lowest border-2 border-on-background neo-shadow p-6 md:p-10 mb-8 relative z-10">
+                <div id="waitlist-error"
+                    class="hidden bg-error-container border-2 border-error text-error px-4 py-3 mb-6 font-label-mono text-label-mono">
+                    <span id="waitlist-error-msg">Please fill in all required fields.</span>
+                </div>
+                <form class="space-y-8" id="waitlist-form" onsubmit="submitWaitlist(event)">
+                    <div class="space-y-2">
+                        <label class="font-label-caps text-label-caps block" for="wl-name">FULL NAME <span
+                                class="text-error">*</span></label>
+                        <input id="wl-name" name="Full Name"
+                            class="w-full h-14 bg-white border-2 border-on-background px-4 font-label-mono text-on-background focus:outline-none focus:ring-4 focus:ring-primary-container transition-all"
+                            placeholder="ENTER YOUR NAME" required type="text">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-label-caps text-label-caps block" for="wl-age">AGE GROUP <span
+                                class="text-error">*</span></label>
+                        <div class="relative">
+                            <select id="wl-age" name="Age Group"
+                                class="w-full h-14 bg-white border-2 border-on-background px-4 font-label-mono text-on-background focus:outline-none focus:ring-4 focus:ring-primary-container transition-all appearance-none"
+                                required>
+                                <option value="">SELECT YOUR AGE GROUP</option>
+                                <option value="Under 18">Under 18</option>
+                                <option value="18-24">18 - 24</option>
+                                <option value="25-34">25 - 34</option>
+                                <option value="35-44">35 - 44</option>
+                                <option value="45+">45+</option>
+                            </select>
+                            <span
+                                class="material-symbols-outlined absolute right-3 top-3 pointer-events-none">expand_more</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-2">
+                            <label class="font-label-caps text-label-caps block" for="wl-email">EMAIL ADDRESS <span
+                                    class="text-error">*</span></label>
+                            <input id="wl-email" name="Email"
+                                class="w-full h-14 bg-white border-2 border-on-background px-4 font-label-mono text-on-background focus:outline-none focus:ring-4 focus:ring-secondary-container transition-all"
+                                placeholder="YOU@LAB.COM" required type="email">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="font-label-caps text-label-caps block" for="wl-phone">PHONE (OPTIONAL)</label>
+                            <input id="wl-phone" name="Phone"
+                                class="w-full h-14 bg-white border-2 border-on-background px-4 font-label-mono text-on-background focus:outline-none focus:ring-4 focus:ring-primary-container transition-all"
+                                placeholder="+91 98XXX XXXXX" type="tel">
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-label-caps text-label-caps block" for="wl-questions">ANY QUESTIONS?
+                            (OPTIONAL)</label>
+                        <textarea id="wl-questions" name="Questions From User"
+                            class="w-full h-24 bg-white border-2 border-on-background px-4 py-3 font-label-mono text-on-background focus:outline-none focus:ring-4 focus:ring-primary-container transition-all resize-none"
+                            placeholder="QUESTIONS OR THOUGHTS..."></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-label-caps text-label-caps block" for="wl-feedback">FEEDBACK / SUGGESTIONS
+                            (OPTIONAL)</label>
+                        <textarea id="wl-feedback" name="Feedback / Suggestions"
+                            class="w-full h-24 bg-white border-2 border-on-background px-4 py-3 font-label-mono text-on-background focus:outline-none focus:ring-4 focus:ring-primary-container transition-all resize-none"
+                            placeholder="YOUR FEEDBACK, IDEAS, OR SUGGESTIONS..."></textarea>
+                    </div>
+                    <div class="flex justify-center py-2">
+                        <div
+                            class="w-24 h-24 bg-primary-container border-2 border-on-background neo-shadow flex items-center justify-center transform rotate-6 hover:rotate-0 transition-transform">
+                            <span class="material-symbols-outlined text-4xl">science</span>
+                        </div>
+                    </div>
+                    <button id="submit-btn"
+                        class="w-full bg-secondary-container text-white border-2 border-on-background h-16 neo-shadow hover:translate-x-2 hover:translate-y-2 hover:shadow-none transition-all tracking-widest uppercase flex items-center justify-center gap-3"
+                        type="submit" style="font-family:'Anybody',sans-serif;font-weight:700;font-size:20px;">
+                        <span id="submit-btn-text">JOIN THE WAITLIST</span>
+                        <span id="submit-spinner" class="hidden"><span class="spinner"></span></span>
+                    </button>
+                    <div id="submit-error"
+                        class="hidden bg-error-container border-2 border-error text-error px-4 py-3 font-label-mono text-label-mono text-center">
+                        Something went wrong. Please try again.</div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- SUCCESS PAGE -->
+    <div id="page-success" class="page">
+        <div
+            class="min-h-screen flex flex-col items-center justify-center px-4 bg-background relative overflow-hidden py-16">
+            <div class="absolute top-0 left-0 w-full h-2 bg-primary-container"></div>
+            <div class="absolute top-20 right-10 opacity-30 spark-animation"><span
+                    class="material-symbols-outlined text-[80px] text-secondary-container"
+                    style="font-variation-settings:'FILL' 1;">auto_awesome</span></div>
+            <div class="absolute bottom-20 left-10 opacity-30 spark-animation" style="animation-delay:1s;"><span
+                    class="material-symbols-outlined text-[64px] text-primary-container"
+                    style="font-variation-settings:'FILL' 1;">star</span></div>
+            <div
+                class="absolute -top-10 -right-10 w-48 h-48 bg-secondary rounded-full border-4 border-on-background opacity-10 animate-float">
+            </div>
+            <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-primary-container border-4 border-on-background opacity-20 animate-float"
+                style="animation-delay:1.5s;"></div>
+            <div class="max-w-lg mx-auto text-center relative z-10">
+                <div
+                    class="w-32 h-32 bg-primary-container border-4 border-on-background neo-shadow flex items-center justify-center mx-auto mb-8 rotate-3">
+                    <svg class="w-16 h-16" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="check-path" d="M12 30 L25 43 L48 18" stroke="#1b1b1b" stroke-width="5"
+                            stroke-linecap="square" stroke-linejoin="miter" fill="none" />
+                    </svg>
+                </div>
+                <div
+                    class="inline-block bg-secondary-container text-white border-2 border-on-background px-4 py-1 mb-6 font-label-mono text-label-mono">
+                    &#x1F389; YOU'RE IN THE LAB</div>
+                <h1 class="text-4xl md:text-5xl uppercase tracking-tighter mb-6"
+                    style="font-family:'Anybody',sans-serif;font-weight:900;">Formula <span
+                        class="text-secondary italic underline decoration-4 underline-offset-8">Locked In!</span></h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-4">Your responses have been recorded.
+                    We'll be in touch when your custom gummy formula is ready for launch.</p>
+                <p class="font-label-mono text-label-mono text-on-surface-variant mb-10">Check your inbox &mdash;
+                    confirmation on the way.</p>
+                <div class="bg-surface-container border-4 border-on-background neo-shadow p-6 text-left mb-10">
+                    <h3 class="font-headline-md text-headline-md uppercase mb-4 font-black"
+                        style="font-family:'Anybody',sans-serif;">YOUR FORMULA SUMMARY</h3>
+                    <div class="space-y-2 font-label-mono text-label-mono" id="success-summary"></div>
+                </div>
+                <button onclick="restartSurvey()"
+                    class="bg-primary-container text-on-primary-container border-2 border-on-background px-8 py-4 font-label-caps text-label-caps uppercase neo-shadow hover:translate-x-2 hover:translate-y-2 hover:shadow-none transition-all">&larr;
+                    Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const TOTAL_STEPS = 8;
+
+        const surveyState = {
+            userType: null, ageGroup: null, healthGoals: [], preferredFlavors: [],
+            priorityRanks: {}, shapePreference: null, preferredSweetness: null, purchaseIntent: null
+        };
+        let currentStep = 1;
+        let rankCount = 0;
+
+        const stepConfig = [
+            { title: 'YOUR VIBE', subtitle: 'Who are you?', required: true, type: 'single', field: 'userType' },
+            { title: 'AGE GROUP', subtitle: 'How old are you?', required: true, type: 'single', field: 'ageGroup' },
+            { title: 'HEALTH GOALS', subtitle: 'Choose up to 3 goals', required: true, type: 'multi', field: 'healthGoals' },
+            { title: 'FLAVOR SELECTION', subtitle: 'Choose up to 3 flavors', required: true, type: 'multi', field: 'preferredFlavors' },
+            { title: 'IMPORTANCE RANKING', subtitle: 'Tap to rank all 7 factors', required: false, type: 'rank', field: 'priorityRanks' },
+            { title: 'SHAPE SELECTION', subtitle: 'Pick your gummy shape', required: true, type: 'single', field: 'shapePreference' },
+            { title: 'SWEETNESS LEVEL', subtitle: 'What is your sugar stance?', required: true, type: 'single', field: 'preferredSweetness' },
+            { title: 'THE VIBE CHECK', subtitle: 'Final question', required: true, type: 'single', field: 'purchaseIntent' },
+        ];
+
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const page = document.getElementById(id);
+            page.classList.add('active', 'page-enter');
+            setTimeout(() => page.classList.remove('page-enter'), 400);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goToSurvey() {
+            currentStep = 1;
+            resetSurveyState();
+            resetSurveyUI();
+            showPage('page-survey');
+            updateSurveyUI();
+        }
+
+        function goBackToSurvey() {
+            showPage('page-survey');
+            updateSurveyUI();
+            restoreStepVisuals(currentStep);
+        }
+
+        function confirmGoHome() {
+            if (confirm('Leave the survey? Your progress will be lost.')) showPage('page-landing');
+        }
+
+        function restartSurvey() { showPage('page-landing'); }
+
+        function updateSurveyUI() {
+            const cfg = stepConfig[currentStep - 1];
+            document.getElementById('step-title').textContent = cfg.title;
+            document.getElementById('step-subtitle').textContent = cfg.subtitle;
+            document.getElementById('step-counter').textContent = '0' + currentStep + '/0' + TOTAL_STEPS;
+            document.getElementById('progress-indicator').style.width = ((currentStep / TOTAL_STEPS) * 100) + '%';
+            document.getElementById('next-btn-text').textContent = currentStep === TOTAL_STEPS ? 'JOIN WAITLIST' : 'NEXT STEP';
+            const backBtn = document.getElementById('back-btn');
+            backBtn.classList.toggle('opacity-30', currentStep === 1);
+            backBtn.classList.toggle('pointer-events-none', currentStep === 1);
+            hideError();
+        }
+
+        function nextStep() {
+            if (!validateStep(currentStep)) return;
+            if (currentStep < TOTAL_STEPS) {
+                document.getElementById('step-' + currentStep).classList.add('hidden');
+                currentStep++;
+                document.getElementById('step-' + currentStep).classList.remove('hidden');
+                updateSurveyUI();
+                restoreStepVisuals(currentStep);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                prefillWaitlist();
+                showPage('page-waitlist');
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.getElementById('step-' + currentStep).classList.add('hidden');
+                currentStep--;
+                document.getElementById('step-' + currentStep).classList.remove('hidden');
+                updateSurveyUI();
+                restoreStepVisuals(currentStep);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function resetSurveyState() {
+            surveyState.userType = null; surveyState.ageGroup = null;
+            surveyState.healthGoals = []; surveyState.preferredFlavors = [];
+            surveyState.priorityRanks = {}; surveyState.shapePreference = null;
+            surveyState.preferredSweetness = null; surveyState.purchaseIntent = null;
+            rankCount = 0;
+        }
+
+        function resetSurveyUI() {
+            document.querySelectorAll('.survey-step').forEach(s => s.classList.add('hidden'));
+            document.getElementById('step-1').classList.remove('hidden');
+            document.querySelectorAll('.selection-card-active').forEach(b => b.classList.remove('selection-card-active'));
+            document.querySelectorAll('.multi-card-active').forEach(b => b.classList.remove('multi-card-active'));
+            document.querySelectorAll('.rank-item').forEach(item => { item.classList.remove('ranked'); item.querySelector('.rank-number').textContent = '-'; });
+            hideError();
+        }
+
+        function selectSingle(btn, field, value) {
+            btn.closest('section').querySelectorAll('button').forEach(b => b.classList.remove('selection-card-active'));
+            btn.classList.add('selection-card-active');
+            surveyState[field] = value;
+            pulseCard(btn); hideError();
+        }
+
+        function selectMulti(btn, field, value, maxCount) {
+            if (btn.classList.contains('multi-card-active')) {
+                btn.classList.remove('multi-card-active');
+                surveyState[field] = surveyState[field].filter(v => v !== value);
+            } else {
+                if (surveyState[field].length >= maxCount) { showError('You can select up to ' + maxCount + ' options.'); return; }
+                btn.classList.add('multi-card-active');
+                surveyState[field].push(value);
+                pulseCard(btn);
+            }
+            hideError();
+        }
+
+        function pulseCard(btn) { btn.style.transform = 'scale(0.95)'; setTimeout(() => btn.style.transform = '', 120); }
+
+        function handleRank(item) {
+            const num = item.querySelector('.rank-number');
+            if (num.textContent === '-') {
+                rankCount++; num.textContent = rankCount;
+                item.classList.add('ranked');
+                surveyState.priorityRanks[item.getAttribute('data-rank-label')] = rankCount;
+            }
+        }
+
+        function resetRanks() {
+            rankCount = 0; surveyState.priorityRanks = {};
+            document.querySelectorAll('.rank-number').forEach(n => n.textContent = '-');
+            document.querySelectorAll('.rank-item').forEach(i => i.classList.remove('ranked'));
+        }
+
+        function validateStep(stepNum) {
+            const cfg = stepConfig[stepNum - 1];
+            if (!cfg.required) return true;
+            if (cfg.type === 'single' && !surveyState[cfg.field]) { showError('Please make a selection before continuing.'); shakeStep(stepNum); return false; }
+            if (cfg.type === 'multi' && surveyState[cfg.field].length === 0) { showError('Please select at least one option before continuing.'); shakeStep(stepNum); return false; }
+            return true;
+        }
+
+        function shakeStep(n) { const s = document.getElementById('step-' + n); s.classList.add('shake'); setTimeout(() => s.classList.remove('shake'), 500); }
+        function showError(msg) { document.getElementById('error-msg').textContent = msg; document.getElementById('error-banner').classList.remove('hidden'); }
+        function hideError() { document.getElementById('error-banner').classList.add('hidden'); }
+
+        function restoreStepVisuals(stepNum) {
+            const cfg = stepConfig[stepNum - 1];
+            const section = document.getElementById('step-' + stepNum);
+            if (!section) return;
+            if (cfg.type === 'single') {
+                const val = surveyState[cfg.field];
+                if (val) section.querySelectorAll('button').forEach(btn => { if (btn.getAttribute('onclick') && btn.getAttribute('onclick').indexOf("'" + val + "'") !== -1) btn.classList.add('selection-card-active'); });
+            } else if (cfg.type === 'multi') {
+                surveyState[cfg.field].forEach(val => section.querySelectorAll('button').forEach(btn => { if (btn.getAttribute('onclick') && btn.getAttribute('onclick').indexOf("'" + val + "'") !== -1) btn.classList.add('multi-card-active'); }));
+            } else if (cfg.type === 'rank') {
+                document.querySelectorAll('.rank-item').forEach(item => {
+                    const label = item.getAttribute('data-rank-label');
+                    const rank = surveyState.priorityRanks[label];
+                    if (rank !== undefined) { item.querySelector('.rank-number').textContent = rank; item.classList.add('ranked'); }
+                });
+                const ranks = Object.values(surveyState.priorityRanks);
+                rankCount = ranks.length > 0 ? Math.max(...ranks) : 0;
+            }
+        }
+
+        function prefillWaitlist() {
+            if (surveyState.ageGroup) document.getElementById('wl-age').value = surveyState.ageGroup;
+        }
+
+        function buildPriorityRanks(priorityRanks) {
+            const byRank = {};
+            Object.entries(priorityRanks).forEach(([label, rank]) => {
+                byRank[rank] = label;
+            });
+            return {
+                priorityRank1: byRank[1] || '',
+                priorityRank2: byRank[2] || '',
+                priorityRank3: byRank[3] || '',
+                priorityRank4: byRank[4] || '',
+                priorityRank5: byRank[5] || '',
+                priorityRank6: byRank[6] || '',
+                priorityRank7: byRank[7] || ''
+            };
+        }
+
+        function detectBrowser() {
+            const ua = navigator.userAgent;
+            if (ua.includes('Edg/')) return 'Edge';
+            if (ua.includes('OPR/') || ua.includes('Opera')) return 'Opera';
+            if (ua.includes('Chrome') && !ua.includes('Edg/')) return 'Chrome';
+            if (ua.includes('Safari') && !ua.includes('Chrome')) return 'Safari';
+            if (ua.includes('Firefox')) return 'Firefox';
+            return 'Other';
+        }
+
+        function detectDevice() {
+            const ua = navigator.userAgent;
+            if (/Mobi|Android|iPhone|iPad|iPod/i.test(ua)) return 'Mobile';
+            if (/Tablet|iPad/i.test(ua)) return 'Tablet';
+            return 'Desktop';
+        }
+
+        function buildSubmissionPayload(name, ageGroup, email, phone, questions, feedback) {
+            const priorityRanks = buildPriorityRanks(surveyState.priorityRanks);
+
+            return {
+                fullName: name,
+                email: email,
+                phone: phone,
+                ageGroup: ageGroup,
+                userType: surveyState.userType || '',
+                purchaseIntent: surveyState.purchaseIntent || '',
+                healthGoals: surveyState.healthGoals || [],
+                preferredFlavors: surveyState.preferredFlavors || [],
+                priorityRank1: priorityRanks.priorityRank1,
+                priorityRank2: priorityRanks.priorityRank2,
+                priorityRank3: priorityRanks.priorityRank3,
+                priorityRank4: priorityRanks.priorityRank4,
+                priorityRank5: priorityRanks.priorityRank5,
+                priorityRank6: priorityRanks.priorityRank6,
+                priorityRank7: priorityRanks.priorityRank7,
+                preferredSweetness: surveyState.preferredSweetness || '',
+                shapePreference: surveyState.shapePreference || '',
+                questions: questions,
+                feedback: feedback,
+                source: 'Website',
+                device: detectDevice(),
+                browser: detectBrowser()
+            };
+        }
+
+        async function submitWaitlist(e) {
+            e.preventDefault();
+            const ENDPOINT = 'https://script.google.com/macros/s/AKfycbymGT8X4oTKibIyvrMUeefb-kusgkgye5xkc8eNSITLBUtLkU0ymUiDWhMW8aUDGI2K/exec';
+            const name = document.getElementById('wl-name').value.trim();
+            const ageGroup = document.getElementById('wl-age').value;
+            const email = document.getElementById('wl-email').value.trim();
+            const phone = document.getElementById('wl-phone').value.trim();
+            const questions = document.getElementById('wl-questions').value.trim();
+            const feedback = document.getElementById('wl-feedback').value.trim();
+            const waitlistError = document.getElementById('waitlist-error');
+            const submitError = document.getElementById('submit-error');
+            let hasError = false;
+
+            if (localStorage.getItem('gummy_waitlist_submitted') === 'true') {
+                submitError.textContent = 'You have already joined the waitlist. Thank you!';
+                submitError.classList.remove('hidden');
+                return;
+            }
+
+            ['wl-name', 'wl-age', 'wl-email'].forEach(id => document.getElementById(id).classList.remove('input-error'));
+            if (!name) { document.getElementById('wl-name').classList.add('input-error'); hasError = true; }
+            if (!ageGroup) { document.getElementById('wl-age').classList.add('input-error'); hasError = true; }
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { document.getElementById('wl-email').classList.add('input-error'); hasError = true; }
+            if (hasError) { document.getElementById('waitlist-error-msg').textContent = 'Please fill in all required fields correctly.'; waitlistError.classList.remove('hidden'); return; }
+            waitlistError.classList.add('hidden'); submitError.classList.add('hidden');
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true; submitBtn.classList.add('opacity-70');
+            document.getElementById('submit-btn-text').textContent = 'SENDING...';
+            document.getElementById('submit-spinner').classList.remove('hidden');
+
+            const payload = buildSubmissionPayload(name, ageGroup, email, phone, questions, feedback);
+            try {
+                const response = await fetch(ENDPOINT, {
+                    method: 'POST',
+                    mode: 'cors',
+                    redirect: 'follow',
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                if (!response.ok || !result.success) {
+                    throw new Error(result.error || 'Submission failed');
+                }
+
+                localStorage.setItem('gummy_waitlist_submitted', 'true');
+                buildSuccessSummary(payload);
+                launchConfetti();
+                showPage('page-success');
+            } catch (err) {
+                console.error(err);
+                submitError.classList.remove('hidden');
+                submitBtn.disabled = false; submitBtn.classList.remove('opacity-70');
+                document.getElementById('submit-btn-text').textContent = 'JOIN THE WAITLIST';
+                document.getElementById('submit-spinner').classList.add('hidden');
+            }
+        }
+
+        function buildSuccessSummary(payload) {
+            const rows = [['Name', payload.fullName], ['Email', payload.email], ['Age Group', payload.ageGroup], ['User Type', payload.userType], ['Health Goals', Array.isArray(payload.healthGoals) ? payload.healthGoals.join(', ') : payload.healthGoals], ['Preferred Flavors', Array.isArray(payload.preferredFlavors) ? payload.preferredFlavors.join(', ') : payload.preferredFlavors], ['Shape', payload.shapePreference], ['Sweetness', payload.preferredSweetness], ['Purchase Intent', payload.purchaseIntent], ['Feedback', payload.feedback]];
+            document.getElementById('success-summary').innerHTML = rows.filter(([, v]) => v).map(([k, v]) => '<div class="flex justify-between py-1 border-b border-outline-variant"><span class="text-on-surface-variant uppercase">' + k + '</span><span class="text-on-surface font-bold text-right max-w-xs">' + v + '</span></div>').join('');
+        }
+
+        function launchConfetti() {
+            const colors = ['#ccff00', '#e4006c', '#7df4ff', '#506600', '#b60055'];
+            for (let i = 0; i < 50; i++) {
+                const p = document.createElement('div');
+                p.className = 'confetti-piece';
+                p.style.cssText = 'left:' + Math.random() * 100 + 'vw;top:-20px;background:' + colors[Math.floor(Math.random() * colors.length)] + ';animation-duration:' + (1.5 + Math.random() * 2) + 's;animation-delay:' + Math.random() * 0.5 + 's;width:' + (6 + Math.random() * 10) + 'px;height:' + (6 + Math.random() * 10) + 'px;';
+                document.body.appendChild(p);
+                setTimeout(() => p.remove(), 4000);
+            }
+        }
+
+        setInterval(() => {
+            const visible = document.querySelector('.survey-step:not(.hidden)');
+            if (visible && document.getElementById('page-survey').classList.contains('active')) {
+                const cards = visible.querySelectorAll('button:not(.selection-card-active):not(.multi-card-active)');
+                if (cards.length > 0) { const c = cards[Math.floor(Math.random() * cards.length)]; c.classList.add('electric-pulse'); setTimeout(() => c.classList.remove('electric-pulse'), 2000); }
+            }
+        }, 3500);
+
+        updateSurveyUI();
+    </script>
+</body>
+
+</html>
