@@ -469,7 +469,7 @@
                 <div class="max-w-4xl mx-auto text-center relative z-10">
                     <h2 class="text-headline-lg-mobile md:text-headline-lg uppercase mb-6"
                         style="font-family:'Anybody',sans-serif;font-weight:800;">Ready to mix your batch?</h2>
-                    <p class="font-body-lg text-body-lg mb-10 text-outline-variant">Join 50,000+ gummy enthusiasts who
+                    <p class="font-body-lg text-body-lg mb-10 text-outline-variant">Join 50+ gummy enthusiasts who
                         stopped buying generic shelf candy and started building their own health routine.</p>
                     <button onclick="goToSurvey()"
                         class="bg-primary-container text-on-primary-container border-2 border-white px-10 py-5 font-label-caps text-label-caps uppercase neo-shadow-white hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">Start
@@ -903,7 +903,7 @@
                         </button>
                         <button
                             class="bg-surface border-4 border-on-background p-10 flex flex-col items-center gap-4 neo-shadow hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all"
-                            onclick="selectSingle(this,'preferredSweetness','Doesn&apos;t Matter')"><span
+                            onclick="selectSingle(this,'preferredSweetness','Doesn\'t Matter')"><span
                                 class="material-symbols-outlined text-6xl">shutter_speed</span>
                             <div class="text-center"><span
                                     class="font-headline-lg-mobile block uppercase font-black italic"
@@ -1286,9 +1286,9 @@
             if (!section) return;
             if (cfg.type === 'single') {
                 const val = surveyState[cfg.field];
-                if (val) section.querySelectorAll('button').forEach(btn => { if (btn.getAttribute('onclick') && btn.getAttribute('onclick').indexOf("'" + val + "'") !== -1) btn.classList.add('selection-card-active'); });
+                if (val) section.querySelectorAll('button').forEach(btn => { if (btn.getAttribute('onclick') && btn.getAttribute('onclick').indexOf("'" + val.replace(/'/g, "\\'") + "'") !== -1) btn.classList.add('selection-card-active'); });
             } else if (cfg.type === 'multi') {
-                surveyState[cfg.field].forEach(val => section.querySelectorAll('button').forEach(btn => { if (btn.getAttribute('onclick') && btn.getAttribute('onclick').indexOf("'" + val + "'") !== -1) btn.classList.add('multi-card-active'); }));
+                surveyState[cfg.field].forEach(val => section.querySelectorAll('button').forEach(btn => { if (btn.getAttribute('onclick') && btn.getAttribute('onclick').indexOf("'" + val.replace(/'/g, "\\'") + "'") !== -1) btn.classList.add('multi-card-active'); }));
             } else if (cfg.type === 'rank') {
                 document.querySelectorAll('.rank-item').forEach(item => {
                     const label = item.getAttribute('data-rank-label');
